@@ -4,7 +4,7 @@
 #include "screen.h"
 #include <unistd.h>
 #include "comm.h"
-
+#include "sound.h"
 int main(void){
 	Position cur = getscreensize() ;
 	char postdata[100];
@@ -31,7 +31,10 @@ int main(void){
 	clearscreen();
 	printf("color is set back to default\n");
 	getchar() ;
-
+	FILE *fp = fopen("test.wav" , "r") ;
+	WAVheader h = readWavHdr(fp) ;
+	fclose(fp);
+	displayWavHdr(h) ;
 /*	printf("Today we will make some animation.  Press any key to continue\n");
 	getchar();	//wait for user to press a key
 	int ff, bb;
