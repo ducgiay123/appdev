@@ -10,7 +10,7 @@ enum FG{BLACK=30,RED,GREEN,YELLOW,BLUE,MAGENTA,CYAN,WHITE};
 #define bg(c) (c+10)	//marco definition
 
 #define UNICODE		//This is for conditional compilation
-#define BAR "\u2588"
+#define BAR "\u2590"
 #define DEBUG      //for conditional compilation
 typedef struct{
 	int row ;   // this struc will define a compound data , which consist 

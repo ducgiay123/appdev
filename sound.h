@@ -1,5 +1,9 @@
 // this header file contains constants definition and function decalarations
 // for processing sound , specifically .wav files .
+//#define SDEBUG
+#define SAMPLERATE 16000
+#define BARS 160
+#define SIZE 500
 
 typedef struct {
 	char chunkID[4] ;			// should be always "RIFF"
@@ -22,3 +26,4 @@ typedef struct {
 
 WAVheader readWavHdr(FILE *) ;
 void displayWavHdr(WAVheader) ;
+void wavdata(WAVheader , FILE*);

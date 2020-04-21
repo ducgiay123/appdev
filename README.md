@@ -1,6 +1,12 @@
 #appdev for I-IT-1N&2
+----------------------------------------------------------------------------
+-------------------------Application Development 2020-----------------------
+----------------------------------------------------------------------------
 
 
+This project is made in course "Application Developments 2020" for us to 
+understand what tools and measures will be used in an software application
+development.
 
 List of contents
 1:Configuration instructions
@@ -10,13 +16,7 @@ List of contents
 5:Copyright and Licensing informaiton
 6:Contact information
 7:Credits and ackknowledgements
-----------------------------------------------------------------------------
------------------------Application Development 2020-------------------------
-----------------------------------------------------------------------------
 
-This project is made in course "Application Developments 2020" for us to 
-understand what tools and measures will be used in an software application
-development.
 
 
 1.Configuration Instructions
