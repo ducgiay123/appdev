@@ -52,6 +52,16 @@ List of contents
 	comm.h			contains constant definitions and function declarations
 					of comm.c
 	makefile		contains makefile function and operating command
+
+	sound.c 		contains reading , using , organize the wav file in the course
+	sound.h			contains constant definitions and function declarations
+					of sound.c
+	main.c 			include the main content of reading wav data and using this information
+					 for several pupose 
+
+	puttysize.php 	this file contents the reading and writing the post data from the main.c 
+					and make the putty file to store data.
+					
 	
 5.Copy right
 	This application follow GPLv2 copyright.
