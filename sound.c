@@ -2,6 +2,7 @@
 #include "sound.h"
 #include <math.h>
 #include "screen.h"
+#include "comm.h"
 
 WAVheader readWavHdr(FILE *fp){
 	WAVheader myh ;
@@ -10,21 +11,21 @@ WAVheader readWavHdr(FILE *fp){
 }
 
 void displayWavHdr (WAVheader h) {
-	//setfgcolor(BLUE);
-	for(int i=0 ; i<4 ; i++){
+	setfgcolor(BLUE);
+	/*for(int i=0 ; i<4 ; i++){
 		printf("%c" , h.chunkID[i]) ;
-	}
+	} */
 	printf("\n") ;
 	printf("CHUNK size:%d\n" , h.chunkSize ) ;
 	printf("NUmber of channels: %d\n" , h.numChannels) ;
-	//gotoXY(1,1) ;
+	gotoXY(1,1) ;
 	printf("Sample rate: %d\n" , h.sampleRate) ;
-	//setfgcolor(GREEN);
-	printf("Bits per sample: %d\n" , h.bitsPerSample);
+	setfgcolor(GREEN);
+	//printf("Bits per sample: %d\n" , h.bitsPerSample);
 	// ------ to be continued
 	double duration;
 	duration =(double) h.subchunk2Size/h.byteRate;
-	//gotoXY(1,75) ;
+	gotoXY(1,75) ;
 	printf("Duration: %.2f seconds\n",duration);
 	resetcolors();
 }
@@ -32,7 +33,9 @@ void wavdata(WAVheader h , FILE *fp){
 	short samples[SIZE];
 	double temp =0 ;
 	double dB = 0 ;
+	char postdata[100];
 	int c=0;
+	double max=0 ;
 	for(int i=0 ; i<BARS ; i++){ // read 5-sec wave file
 		fread(samples,sizeof(samples) , 1  , fp) ;
 		double sum = 0.0 ;
@@ -48,6 +51,9 @@ void wavdata(WAVheader h , FILE *fp){
 		if((dB-temp)>30){
 			c++ ; 
 		}
+		if(dB>=max){
+			max=dB ;
+		}
 #ifdef SDEBUG
 		printf("dB[%d] = %f\n",i,dB);
 #else 
@@ -55,8 +61,12 @@ void wavdata(WAVheader h , FILE *fp){
 #endif 
 		resetcolors();
 	}
-	//gotoXY(1,150);
+	sprintf(postdata , "Peaks=%d&MaxdB=%f\n" ,  c , max) ;
+	sendpost(URL,postdata);
+	gotoXY(1,150);
 	setfgcolor(MAGENTA);
 	printf("Number of peaks: %d",c);
+	gotoXY(2,150);
+	printf("MAX dB: %f",max);
 	resetcolors();
 }

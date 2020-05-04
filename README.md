@@ -20,17 +20,22 @@ List of contents
 
 
 1.Configuration Instructions
-	In this section we should give users information of how to configure the
-	operating system , sofeware enviroment , libraries , etc . to run this 
-	application
+	We need use putty for this section or using linux operating system.
+	This app include several libraries such as: math , lcurl , stdio , stdint , ...
+	to run this application
+
 2.Installation instructions
-	In this section we should give users information of how to install this
-	application , what files not included in this package should be added.
-	what command/operation should be used to install this application.
+	First   : Connect to the Putty by using student account
+	Second  : using command "make" on the command window to compile all the .c file and make the executed file (sound)
+	Third 	: Using command "./sound" to run the program
+	If you want to check the content inside files, you can use "nano namefile" to access that file
+	or using "make clean" to terminate .o file  
+	*note: always rememmber that this programe include -lcurl -lm libraries to run the programm.
 3.Operating instructions
-	In this section we should give the users information of how to run this 
-	application, e.g. , what command-line arguments can be given and what do
-	they mean.
+	Using command "./sound" to run the program
+	Because after compiling the files , we got the executed file (sound). and this file can be considered as the output file of the app.
+	Please: Enter or using any keyboard to continue the application
+	
 4.File manifest
 	We should list all the files of this application at here with short 
 	description.
